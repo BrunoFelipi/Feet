@@ -105,21 +105,29 @@ public class BancoDeDados {
         
     }
     
+    public void removeAllJogadoresTime(Time t){
+        
+        for(Time time : getListaTimes()){            
+            for(int i=0; i < time.getListaJogadores().size(); i++){                
+                time.getListaJogadores().get(i).setTime(null); 
+                time.getListaJogadores().remove(time.getListaJogadores().get(i));
+            }
+        }
+    }
+    
     public int getNextIdTime(){
         
         if(this.getListaTimes().isEmpty()){
             return 1;
         }
-        return this.getListaTimes().get(this.getListaTimes().size()).getId() + 1;
+        return this.getListaTimes().get(this.getListaTimes().size() -1).getId() + 1;
     }
     
     public int getNextIdJogador(){
         
         if(this.getListaJogadores().isEmpty()){
-            System.out.println("LISTA DE JOGADORES VAZIA");
             return 1;
         }
-        System.out.println("LISTA DE JOGADORES NÃO VAZIA");
         return this.getListaJogadores().get(this.getListaJogadores().size() -1).getId() + 1;
     }
     

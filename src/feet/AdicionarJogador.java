@@ -40,11 +40,10 @@ public class AdicionarJogador extends javax.swing.JFrame {
     }
     
     private void popularComboClonarJogador(){
-        
+                
         for(Jogador j : this.time.getListaJogadores()){
             comboClonarJogador.addItem(j);
-        }
-        
+        }        
     }
     
     @SuppressWarnings("unchecked")
@@ -84,7 +83,7 @@ public class AdicionarJogador extends javax.swing.JFrame {
         btnAdicionar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Adicionar Jogador");
+        setTitle("Criar Jogador");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -360,8 +359,7 @@ public class AdicionarJogador extends javax.swing.JFrame {
             comboTitular.setSelectedItem(this.jogadorClonado.getTitular());
             checkCraque.setSelected(this.jogadorClonado.isCraque());
             comboPais.setSelectedItem(this.jogadorClonado.getPais());
-            enabledCamposEdicaoJogador(true);
-            
+            enabledCamposEdicaoJogador(true);            
         }
         
     }//GEN-LAST:event_btnClonarActionPerformed

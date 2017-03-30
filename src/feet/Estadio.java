@@ -48,8 +48,6 @@ public class Estadio {
     }
 
     public void setCapacidadeTotal() {
-        System.out.println("Arquibancada: " + getCapacidadeArquibancada() + "\nCadeiras: " + getCapacidadeCadeiras() +
-                "\nCamarote: " + getCapacidadeCamarote() + "\nGeral: " + getCapacidadeGeral());
         this.capacidadeTotal = getCapacidadeArquibancada() + getCapacidadeCadeiras() + getCapacidadeCamarote() 
                 + getCapacidadeGeral();
     }

@@ -35,7 +35,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="690" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="693" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
           </Group>
@@ -251,7 +251,14 @@
                                                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                                       </Group>
-                                                      <Component id="btnAlterarTime" max="32767" attributes="0"/>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="btnAlterarTime" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="btnAdicionarTime" min="-2" pref="59" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="btnRemoverTime" pref="0" max="32767" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                                      </Group>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -287,7 +294,11 @@
                                                       <Component id="lblTecnico" max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
-                                              <Component id="btnAlterarTime" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="btnAdicionarTime" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                                  <Component id="btnAlterarTime" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                                  <Component id="btnRemoverTime" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
@@ -362,14 +373,14 @@
                                     <Property name="text" type="java.lang.String" value="T&#xe9;cnico:"/>
                                   </Properties>
                                 </Component>
-                                <Component class="javax.swing.JButton" name="btnAlterarTime">
+                                <Component class="javax.swing.JButton" name="btnAdicionarTime">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="Alterar"/>
+                                    <Property name="text" type="java.lang.String" value="Adicionar"/>
                                     <Property name="contentAreaFilled" type="boolean" value="false"/>
                                     <Property name="opaque" type="boolean" value="true"/>
                                   </Properties>
                                   <Events>
-                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlterarTimeActionPerformed"/>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdicionarTimeActionPerformed"/>
                                   </Events>
                                 </Component>
                                 <Component class="javax.swing.JSeparator" name="jSeparator1">
@@ -811,6 +822,28 @@
                                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlterarJogadorActionPerformed"/>
                                   </Events>
                                 </Component>
+                                <Component class="javax.swing.JButton" name="btnAlterarTime">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="Alterar"/>
+                                    <Property name="contentAreaFilled" type="boolean" value="false"/>
+                                    <Property name="enabled" type="boolean" value="false"/>
+                                    <Property name="opaque" type="boolean" value="true"/>
+                                  </Properties>
+                                  <Events>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlterarTimeActionPerformed"/>
+                                  </Events>
+                                </Component>
+                                <Component class="javax.swing.JButton" name="btnRemoverTime">
+                                  <Properties>
+                                    <Property name="text" type="java.lang.String" value="Remover"/>
+                                    <Property name="contentAreaFilled" type="boolean" value="false"/>
+                                    <Property name="enabled" type="boolean" value="false"/>
+                                    <Property name="opaque" type="boolean" value="true"/>
+                                  </Properties>
+                                  <Events>
+                                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoverTimeActionPerformed"/>
+                                  </Events>
+                                </Component>
                               </SubComponents>
                             </Container>
                           </SubComponents>
@@ -915,7 +948,7 @@
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <EmptySpace min="0" pref="581" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="584" max="32767" attributes="0"/>
                               </Group>
                             </DimensionLayout>
                           </Layout>
@@ -971,7 +1004,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jPanel12" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jScrollPane3" alignment="0" pref="583" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane3" alignment="0" pref="586" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                               </Group>
@@ -1020,12 +1053,56 @@
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <EmptySpace min="0" pref="581" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="584" max="32767" attributes="0"/>
                               </Group>
                             </DimensionLayout>
                           </Layout>
                         </Container>
                       </SubComponents>
+                    </Container>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JPanel" name="jPanel14">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="Jogadores">
+                        <Property name="tabTitle" type="java.lang.String" value="Jogadores"/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jPanel15" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jPanel15" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Container class="javax.swing.JPanel" name="jPanel15">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                      </Properties>
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <EmptySpace min="0" pref="802" max="32767" attributes="0"/>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <EmptySpace min="0" pref="608" max="32767" attributes="0"/>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
                     </Container>
                   </SubComponents>
                 </Container>

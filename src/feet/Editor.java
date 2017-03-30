@@ -42,6 +42,7 @@ public class Editor extends javax.swing.JFrame {
         campoNomeTime.setEnabled(visible);
         comboPaisTime.setEnabled(visible);
         comboEstadoTime.setEnabled(visible);
+        btnRemoverTime.setEnabled(visible);       
         btnAlterarTime.setEnabled(visible);       
     }
     
@@ -166,7 +167,7 @@ public class Editor extends javax.swing.JFrame {
         comboEstadoTime = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        btnAlterarTime = new javax.swing.JButton();
+        btnAdicionarTime = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane4 = new javax.swing.JScrollPane();
         tabelaJogadores = new javax.swing.JTable();
@@ -200,6 +201,8 @@ public class Editor extends javax.swing.JFrame {
         btnAdicionarJogador = new javax.swing.JButton();
         btnRemoverJogador = new javax.swing.JButton();
         btnAlterarJogador = new javax.swing.JButton();
+        btnAlterarTime = new javax.swing.JButton();
+        btnRemoverTime = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -210,6 +213,8 @@ public class Editor extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tabelaEstadios = new javax.swing.JTable();
         jPanel12 = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
+        jPanel15 = new javax.swing.JPanel();
         btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -275,12 +280,12 @@ public class Editor extends javax.swing.JFrame {
 
         jLabel5.setText("Técnico:");
 
-        btnAlterarTime.setText("Alterar");
-        btnAlterarTime.setContentAreaFilled(false);
-        btnAlterarTime.setOpaque(true);
-        btnAlterarTime.addActionListener(new java.awt.event.ActionListener() {
+        btnAdicionarTime.setText("Adicionar");
+        btnAdicionarTime.setContentAreaFilled(false);
+        btnAdicionarTime.setOpaque(true);
+        btnAdicionarTime.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlterarTimeActionPerformed(evt);
+                btnAdicionarTimeActionPerformed(evt);
             }
         });
 
@@ -518,6 +523,26 @@ public class Editor extends javax.swing.JFrame {
             }
         });
 
+        btnAlterarTime.setText("Alterar");
+        btnAlterarTime.setContentAreaFilled(false);
+        btnAlterarTime.setEnabled(false);
+        btnAlterarTime.setOpaque(true);
+        btnAlterarTime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarTimeActionPerformed(evt);
+            }
+        });
+
+        btnRemoverTime.setText("Remover");
+        btnRemoverTime.setContentAreaFilled(false);
+        btnRemoverTime.setEnabled(false);
+        btnRemoverTime.setOpaque(true);
+        btnRemoverTime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoverTimeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -556,7 +581,13 @@ public class Editor extends javax.swing.JFrame {
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(btnAlterarTime, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(btnAlterarTime)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnAdicionarTime, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnRemoverTime, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                .addGap(11, 11, 11)))))
                 .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
@@ -582,7 +613,10 @@ public class Editor extends javax.swing.JFrame {
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblEstadio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblTecnico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(btnAlterarTime, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnAdicionarTime, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAlterarTime, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRemoverTime, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -675,7 +709,7 @@ public class Editor extends javax.swing.JFrame {
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 581, Short.MAX_VALUE)
+            .addGap(0, 584, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -743,7 +777,7 @@ public class Editor extends javax.swing.JFrame {
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 581, Short.MAX_VALUE)
+            .addGap(0, 584, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
@@ -763,7 +797,7 @@ public class Editor extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -779,6 +813,32 @@ public class Editor extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Estádios", jPanel5);
+
+        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 802, Short.MAX_VALUE)
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 608, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Jogadores", jPanel14);
 
         btnVoltar.setText("Voltar");
         btnVoltar.setContentAreaFilled(false);
@@ -829,7 +889,7 @@ public class Editor extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 690, Short.MAX_VALUE)
+            .addGap(0, 693, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -852,7 +912,7 @@ public class Editor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void tabelaTimesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelaTimesKeyPressed
-
+        enabledCamposEdicaoTime(true);
         popularDadosTime();
         
     }//GEN-LAST:event_tabelaTimesKeyPressed
@@ -863,17 +923,11 @@ public class Editor extends javax.swing.JFrame {
         
     }//GEN-LAST:event_tabelaTimesMouseClicked
 
-    private void btnAlterarTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarTimeActionPerformed
+    private void btnAdicionarTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarTimeActionPerformed
 
-        this.timeSelecionado.setNome(campoNomeTime.getText().trim());
-        this.timeSelecionado.setPais(comboPaisTime.getSelectedItem() + "");
-        this.timeSelecionado.setEstado(comboEstadoTime.getSelectedItem() + "");
+        new AdicionarTime(getBd(), this).setVisible(true);
         
-        popularTabelaTimes();
-
-        JOptionPane.showMessageDialog(null, "Time editado com sucesso");
-        
-    }//GEN-LAST:event_btnAlterarTimeActionPerformed
+    }//GEN-LAST:event_btnAdicionarTimeActionPerformed
 
     private void sliderIdadeJogadorStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderIdadeJogadorStateChanged
         lblValorIdade.setText(sliderIdadeJogador.getValue() + "");        
@@ -897,7 +951,6 @@ public class Editor extends javax.swing.JFrame {
 
     private void tabelaJogadoresKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelaJogadoresKeyPressed
         popularDadosJogador();
-        System.out.println(this.jogadorSelecionado.getId());
     }//GEN-LAST:event_tabelaJogadoresKeyPressed
 
     private void comboPaisTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboPaisTimeActionPerformed
@@ -937,6 +990,31 @@ public class Editor extends javax.swing.JFrame {
         btnAdicionarJogador.setEnabled(true);
     }//GEN-LAST:event_btnRemoverJogadorActionPerformed
 
+    private void btnAlterarTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarTimeActionPerformed
+
+        this.timeSelecionado.setNome(campoNomeTime.getText().trim());
+        this.timeSelecionado.setPais(comboPaisTime.getSelectedItem() + "");
+        this.timeSelecionado.setEstado(comboEstadoTime.getSelectedItem() + "");
+        
+        popularTabelaTimes();
+
+        JOptionPane.showMessageDialog(null, "Time editado com sucesso");
+        
+    }//GEN-LAST:event_btnAlterarTimeActionPerformed
+
+    private void btnRemoverTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverTimeActionPerformed
+        
+        getBd().removeAllJogadoresTime(this.timeSelecionado);
+        getBd().getListaTimes().remove(this.timeSelecionado);
+        popularTabelaTimes();
+        popularTabelaJogadores();
+        clearCamposTime();
+        clearCamposJogador();
+        enabledCamposEdicaoTime(false);
+        enabledCamposEdicaoJogador(false);
+        
+    }//GEN-LAST:event_btnRemoverTimeActionPerformed
+
     private void clearCamposJogador(){
         
         campoNomeJogador.setText("");
@@ -949,10 +1027,17 @@ public class Editor extends javax.swing.JFrame {
         comboTitular.setSelectedIndex(0);
         checkCraque.setSelected(false);
         comboPaisJogador.setSelectedIndex(0);
-        enabledCamposEdicaoJogador(false);
+        enabledCamposEdicaoJogador(false);        
+    }
+    
+    private void clearCamposTime(){
         
-        
-        
+        campoNomeTime.setText("");        
+        comboPaisJogador.setSelectedIndex(0);
+        comboEstadoTime.setSelectedIndex(0);
+        lblEstadio.setText("");
+        lblTecnico.setText("");
+        enabledCamposEdicaoJogador(false);        
     }
     
     public void popularDadosTime(){        
@@ -965,7 +1050,9 @@ public class Editor extends javax.swing.JFrame {
         comboEstadoTime.setSelectedItem(this.timeSelecionado.getEstado());
         lblEstadio.setText(this.timeSelecionado.getEstadio().getNome());
         lblTecnico.setText(this.timeSelecionado.getTecnico().getNome());
-        btnAdicionarJogador.setEnabled(true);
+        btnAlterarTime.setEnabled(true);
+        btnAdicionarTime.setEnabled(true);
+        btnRemoverTime.setEnabled(true);        
         popularTabelaJogadores();        
     }
     
@@ -988,9 +1075,11 @@ public class Editor extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionarJogador;
+    private javax.swing.JButton btnAdicionarTime;
     private javax.swing.JButton btnAlterarJogador;
     private javax.swing.JButton btnAlterarTime;
     private javax.swing.JButton btnRemoverJogador;
+    private javax.swing.JButton btnRemoverTime;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JTextField campoNomeJogador;
     private javax.swing.JTextField campoNomeTime;
@@ -1022,6 +1111,8 @@ public class Editor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
