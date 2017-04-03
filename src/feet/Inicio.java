@@ -1,5 +1,7 @@
 package feet;
 
+import feet.bancodedados.BancoDeDados;
+
 /**
  *
  * @author bruno

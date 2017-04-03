@@ -1,5 +1,13 @@
 package feet;
 
+import feet.bancodedados.BancoDeDados;
+import feet.estadios.Estadio;
+import feet.times.Time;
+import feet.times.AdicionarTime;
+import feet.tecnicos.Tecnico;
+import feet.jogadores.Jogador;
+import feet.jogadores.AdicionarJogador;
+import feet.tecnicos.TrocarImagemTecnico;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,6 +25,8 @@ public class Editor extends javax.swing.JFrame {
     private Inicio ini;
     private Time timeSelecionado;
     private Jogador jogadorSelecionado;
+    private Tecnico tecnicoSelecionado;
+    private Estadio estadioSelecionado;
     
     public Editor(BancoDeDados bd, Inicio ini) {
         initComponents();
@@ -208,6 +218,25 @@ public class Editor extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tabelaTecnicos = new javax.swing.JTable();
         jPanel10 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        campoNomeTecnico = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        comboPais = new javax.swing.JComboBox<>();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        sliderExperiencia = new javax.swing.JSlider();
+        sliderOfensivo = new javax.swing.JSlider();
+        comboTime = new javax.swing.JComboBox<>();
+        jPanel16 = new javax.swing.JPanel();
+        lblImagem = new javax.swing.JLabel();
+        btnAlterarImagemTecnico = new javax.swing.JButton();
+        valorSliderExperiencia = new javax.swing.JLabel();
+        valorSliderOfensivo = new javax.swing.JLabel();
+        btnExcluir = new javax.swing.JButton();
+        btnAlterarTecnico = new javax.swing.JButton();
+        btnAdicionarTecnico = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JSeparator();
         jPanel5 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -412,7 +441,7 @@ public class Editor extends javax.swing.JFrame {
                             .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(comboHabilidadeJogador, 0, 166, Short.MAX_VALUE)
+                            .addComponent(comboHabilidadeJogador, 0, 247, Short.MAX_VALUE)
                             .addComponent(comboTitular, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel13Layout.createSequentialGroup()
                                 .addComponent(checkCraque)
@@ -561,7 +590,7 @@ public class Editor extends javax.swing.JFrame {
                                 .addComponent(btnAdicionarJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnRemoverJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 3, Short.MAX_VALUE))))
+                                .addGap(0, 84, Short.MAX_VALUE))))
                     .addComponent(jSeparator1)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -696,20 +725,150 @@ public class Editor extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabelaTecnicos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaTecnicosMouseClicked(evt);
+            }
+        });
+        tabelaTecnicos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tabelaTecnicosKeyPressed(evt);
+            }
+        });
         jScrollPane2.setViewportView(tabelaTecnicos);
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLabel6.setText("Nome:");
+
+        jLabel17.setText("Experiência:");
+
+        jLabel18.setText("País:");
+
+        jLabel19.setText("Ofensivo:");
+
+        jLabel20.setText("Time:");
+
+        sliderExperiencia.setBackground(new java.awt.Color(255, 255, 255));
+
+        sliderOfensivo.setBackground(new java.awt.Color(255, 255, 255));
+        sliderOfensivo.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                sliderOfensivoStateChanged(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblImagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblImagem, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+        );
+
+        btnAlterarImagemTecnico.setText("Alterar Imagem");
+        btnAlterarImagemTecnico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarImagemTecnicoActionPerformed(evt);
+            }
+        });
+
+        valorSliderExperiencia.setText("           ");
+
+        valorSliderOfensivo.setText("         ");
+
+        btnExcluir.setText("Excluir");
+
+        btnAlterarTecnico.setText("Alterar");
+
+        btnAdicionarTecnico.setText("Adicionar");
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 472, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sliderOfensivo, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+                            .addComponent(comboTime, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(sliderExperiencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(comboPais, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(campoNomeTecnico))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(valorSliderExperiencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(valorSliderOfensivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAlterarImagemTecnico, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
+                        .addGap(44, 44, 44))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jSeparator3)
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnAdicionarTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnAlterarTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 584, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(campoNomeTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(valorSliderExperiencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(sliderExperiencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(comboPais)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(sliderOfensivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(valorSliderOfensivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel20)
+                        .addComponent(comboTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAlterarImagemTecnico))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnAlterarTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAdicionarTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -729,7 +888,7 @@ public class Editor extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 586, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -773,7 +932,7 @@ public class Editor extends javax.swing.JFrame {
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 472, Short.MAX_VALUE)
+            .addGap(0, 553, Short.MAX_VALUE)
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -820,7 +979,7 @@ public class Editor extends javax.swing.JFrame {
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 802, Short.MAX_VALUE)
+            .addGap(0, 883, Short.MAX_VALUE)
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -883,7 +1042,7 @@ public class Editor extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 807, Short.MAX_VALUE)
+            .addGap(0, 888, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1015,6 +1174,44 @@ public class Editor extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnRemoverTimeActionPerformed
 
+    private void tabelaTecnicosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaTecnicosMouseClicked
+
+        popularDadosTreinador();
+        
+        
+    }//GEN-LAST:event_tabelaTecnicosMouseClicked
+
+    private void sliderOfensivoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderOfensivoStateChanged
+
+        valorSliderOfensivo.setText(sliderOfensivo.getValue() + "");
+        valorSliderExperiencia.setText(sliderExperiencia.getValue() + "");
+        
+    }//GEN-LAST:event_sliderOfensivoStateChanged
+
+    private void tabelaTecnicosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelaTecnicosKeyPressed
+
+        popularDadosTreinador();
+        
+    }//GEN-LAST:event_tabelaTecnicosKeyPressed
+
+    private void btnAlterarImagemTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarImagemTecnicoActionPerformed
+
+        new TrocarImagemTecnico(getBd(), this, this.tecnicoSelecionado).setVisible(true);
+        
+    }//GEN-LAST:event_btnAlterarImagemTecnicoActionPerformed
+
+    private void popularDadosTreinador(){
+        
+        this.tecnicoSelecionado = (Tecnico) this.dtmTecnicos.getValueAt(tabelaTecnicos.getSelectedRow(), tabelaTecnicos.getSelectedColumn()); 
+        
+        campoNomeTecnico.setText(this.tecnicoSelecionado.getNome());
+        sliderExperiencia.setValue(this.tecnicoSelecionado.getExperiencia());
+        comboPais.setSelectedItem(this.tecnicoSelecionado.getPais());
+        sliderOfensivo.setValue(this.tecnicoSelecionado.getOfensivo());
+        comboTime.setSelectedItem(this.tecnicoSelecionado.getTime());
+        
+    }
+    
     private void clearCamposJogador(){
         
         campoNomeJogador.setText("");
@@ -1075,21 +1272,28 @@ public class Editor extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionarJogador;
+    private javax.swing.JButton btnAdicionarTecnico;
     private javax.swing.JButton btnAdicionarTime;
+    private javax.swing.JButton btnAlterarImagemTecnico;
     private javax.swing.JButton btnAlterarJogador;
+    private javax.swing.JButton btnAlterarTecnico;
     private javax.swing.JButton btnAlterarTime;
+    private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnRemoverJogador;
     private javax.swing.JButton btnRemoverTime;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JTextField campoNomeJogador;
+    private javax.swing.JTextField campoNomeTecnico;
     private javax.swing.JTextField campoNomeTime;
     private javax.swing.JCheckBox checkCraque;
     private javax.swing.JComboBox<String> comboEstadoTime;
     private javax.swing.JComboBox<String> comboHabilidadeJogador;
     private javax.swing.JComboBox<String> comboMelhorPe;
+    private javax.swing.JComboBox<String> comboPais;
     private javax.swing.JComboBox<String> comboPaisJogador;
     private javax.swing.JComboBox<String> comboPaisTime;
     private javax.swing.JComboBox<String> comboPosicao;
+    private javax.swing.JComboBox<String> comboTime;
     private javax.swing.JComboBox<String> comboTitular;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1099,10 +1303,15 @@ public class Editor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -1113,6 +1322,7 @@ public class Editor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1127,18 +1337,24 @@ public class Editor extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblEstadio;
+    private javax.swing.JLabel lblImagem;
     private javax.swing.JLabel lblTecnico;
     private javax.swing.JLabel lblValorAgressividade;
     private javax.swing.JLabel lblValorForca;
     private javax.swing.JLabel lblValorIdade;
     private javax.swing.JSlider sliderAgressividadeJogador;
+    private javax.swing.JSlider sliderExperiencia;
     private javax.swing.JSlider sliderForcaJogador;
     private javax.swing.JSlider sliderIdadeJogador;
+    private javax.swing.JSlider sliderOfensivo;
     private javax.swing.JTable tabelaEstadios;
     private javax.swing.JTable tabelaJogadores;
     private javax.swing.JTable tabelaTecnicos;
     private javax.swing.JTable tabelaTimes;
+    private javax.swing.JLabel valorSliderExperiencia;
+    private javax.swing.JLabel valorSliderOfensivo;
     // End of variables declaration//GEN-END:variables
 }

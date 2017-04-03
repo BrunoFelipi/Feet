@@ -1,5 +1,10 @@
 package feet;
 
+import feet.bancodedados.BancoDeDados;
+import feet.estadios.Estadio;
+import feet.times.Time;
+import feet.tecnicos.Tecnico;
+import feet.jogadores.Jogador;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -13,7 +18,7 @@ public class Main {
         
         Tecnico t = new Tecnico(bd.getNextIdTecnico(), "Tite", "Brasileiro", 60, null);        
         Estadio e = new Estadio(bd.getNextIdEstadio(), "Maracanã", 20000, 20000, 10000, 20000, "Brasil");
-        System.out.println(e.getCapacidadeTotal());
+        
         Time time = new Time(bd.getNextIdJogador(),"Metropolitano","Santa Catarina","Brasil",e,t);
         
         t.setTime(time);

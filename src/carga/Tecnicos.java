@@ -1,7 +1,7 @@
 package carga;
 
-import feet.BancoDeDados;
-import feet.Tecnico;
+import feet.bancodedados.BancoDeDados;
+import feet.tecnicos.Tecnico;
 
 /**
  *
