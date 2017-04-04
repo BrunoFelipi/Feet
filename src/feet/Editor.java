@@ -7,6 +7,7 @@ import feet.times.AdicionarTime;
 import feet.tecnicos.Tecnico;
 import feet.jogadores.Jogador;
 import feet.jogadores.AdicionarJogador;
+import feet.tecnicos.AdicionarTecnico;
 import feet.tecnicos.TrocarImagemTecnico;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -52,6 +53,16 @@ public class Editor extends javax.swing.JFrame {
         campoNomeTime.setEnabled(visible);
         comboPaisTime.setEnabled(visible);
         comboEstadoTime.setEnabled(visible);
+        btnRemoverTime.setEnabled(visible);       
+        btnAlterarTime.setEnabled(visible);       
+    }
+    
+    private void enabledCamposEdicaoTecnico(boolean visible){
+        campoNomeTecnico.setEnabled(visible);
+        comboPaisTecnico.setEnabled(visible);
+        sliderOfensivoTecnico.setEnabled(visible);
+        comboTimeTecnico.setEnabled(visible);
+        
         btnRemoverTime.setEnabled(visible);       
         btnAlterarTime.setEnabled(visible);       
     }
@@ -220,18 +231,15 @@ public class Editor extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         campoNomeTecnico = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        comboPais = new javax.swing.JComboBox<>();
+        comboPaisTecnico = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        sliderExperiencia = new javax.swing.JSlider();
-        sliderOfensivo = new javax.swing.JSlider();
-        comboTime = new javax.swing.JComboBox<>();
+        sliderOfensivoTecnico = new javax.swing.JSlider();
+        comboTimeTecnico = new javax.swing.JComboBox<>();
         jPanel16 = new javax.swing.JPanel();
         lblImagem = new javax.swing.JLabel();
         btnAlterarImagemTecnico = new javax.swing.JButton();
-        valorSliderExperiencia = new javax.swing.JLabel();
         valorSliderOfensivo = new javax.swing.JLabel();
         btnExcluir = new javax.swing.JButton();
         btnAlterarTecnico = new javax.swing.JButton();
@@ -742,22 +750,20 @@ public class Editor extends javax.swing.JFrame {
 
         jLabel6.setText("Nome:");
 
-        jLabel17.setText("Experiência:");
-
         jLabel18.setText("País:");
 
         jLabel19.setText("Ofensivo:");
 
         jLabel20.setText("Time:");
 
-        sliderExperiencia.setBackground(new java.awt.Color(255, 255, 255));
-
-        sliderOfensivo.setBackground(new java.awt.Color(255, 255, 255));
-        sliderOfensivo.addChangeListener(new javax.swing.event.ChangeListener() {
+        sliderOfensivoTecnico.setBackground(new java.awt.Color(255, 255, 255));
+        sliderOfensivoTecnico.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                sliderOfensivoStateChanged(evt);
+                sliderOfensivoTecnicoStateChanged(evt);
             }
         });
+
+        comboTimeTecnico.setEnabled(false);
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -777,15 +783,28 @@ public class Editor extends javax.swing.JFrame {
             }
         });
 
-        valorSliderExperiencia.setText("           ");
-
         valorSliderOfensivo.setText("         ");
 
         btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
         btnAlterarTecnico.setText("Alterar");
+        btnAlterarTecnico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlterarTecnicoActionPerformed(evt);
+            }
+        });
 
         btnAdicionarTecnico.setText("Adicionar");
+        btnAdicionarTecnico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicionarTecnicoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -798,21 +817,17 @@ public class Editor extends javax.swing.JFrame {
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
                                 .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(sliderOfensivo, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
-                            .addComponent(comboTime, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(sliderExperiencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(comboPais, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(sliderOfensivoTecnico, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
+                            .addComponent(comboTimeTecnico, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(comboPaisTecnico, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(campoNomeTecnico))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(valorSliderExperiencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(valorSliderOfensivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(valorSliderOfensivo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -839,28 +854,23 @@ public class Editor extends javax.swing.JFrame {
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
                             .addComponent(campoNomeTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(valorSliderExperiencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(sliderExperiencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(comboPais)
+                            .addComponent(comboPaisTecnico)
                             .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(sliderOfensivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(sliderOfensivoTecnico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(valorSliderOfensivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(valorSliderOfensivo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel20)
+                            .addComponent(comboTimeTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel20)
-                        .addComponent(comboTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnAlterarImagemTecnico))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAlterarImagemTecnico)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 332, Short.MAX_VALUE)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1178,15 +1188,13 @@ public class Editor extends javax.swing.JFrame {
 
         popularDadosTreinador();
         
-        
     }//GEN-LAST:event_tabelaTecnicosMouseClicked
 
-    private void sliderOfensivoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderOfensivoStateChanged
+    private void sliderOfensivoTecnicoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sliderOfensivoTecnicoStateChanged
 
-        valorSliderOfensivo.setText(sliderOfensivo.getValue() + "");
-        valorSliderExperiencia.setText(sliderExperiencia.getValue() + "");
+        valorSliderOfensivo.setText(sliderOfensivoTecnico.getValue() + "");        
         
-    }//GEN-LAST:event_sliderOfensivoStateChanged
+    }//GEN-LAST:event_sliderOfensivoTecnicoStateChanged
 
     private void tabelaTecnicosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelaTecnicosKeyPressed
 
@@ -1200,15 +1208,64 @@ public class Editor extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnAlterarImagemTecnicoActionPerformed
 
+    private void btnAlterarTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarTecnicoActionPerformed
+
+        this.tecnicoSelecionado.setNome(campoNomeTecnico.getText());
+        this.tecnicoSelecionado.setPais(comboPaisTecnico.getSelectedItem() + "");
+        this.tecnicoSelecionado.setOfensivo(sliderOfensivoTecnico.getValue());        
+        
+        popularTabelaTecnicos();
+        
+    }//GEN-LAST:event_btnAlterarTecnicoActionPerformed
+
+    private void btnAdicionarTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarTecnicoActionPerformed
+
+        new AdicionarTecnico(this.bd, this).setVisible(true);
+        this.setEnabled(false);
+        
+    }//GEN-LAST:event_btnAdicionarTecnicoActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+
+        this.tecnicoSelecionado = (Tecnico) this.dtmTecnicos.getValueAt(tabelaTecnicos.getSelectedRow(), tabelaTecnicos.getSelectedColumn()); 
+        
+        this.bd.removeTecnico(this.tecnicoSelecionado);
+        
+        if(this.tecnicoSelecionado.getTime() != null){
+            this.bd.removeTecnicoInTime(this.tecnicoSelecionado.getTime());    
+        }
+        
+        popularTabelaTecnicos();
+        
+        if(this.dtmTecnicos.getRowCount() > 0){
+            enabledCamposEdicaoTecnico(true);
+            this.tabelaTecnicos.setRowSelectionInterval(0, 0);
+            popularDadosTreinador();
+            
+        } else {            
+            clearCamposTecnico();
+            enabledCamposEdicaoTecnico(false);    
+        }
+        
+        
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
     private void popularDadosTreinador(){
         
         this.tecnicoSelecionado = (Tecnico) this.dtmTecnicos.getValueAt(tabelaTecnicos.getSelectedRow(), tabelaTecnicos.getSelectedColumn()); 
         
         campoNomeTecnico.setText(this.tecnicoSelecionado.getNome());
-        sliderExperiencia.setValue(this.tecnicoSelecionado.getExperiencia());
-        comboPais.setSelectedItem(this.tecnicoSelecionado.getPais());
-        sliderOfensivo.setValue(this.tecnicoSelecionado.getOfensivo());
-        comboTime.setSelectedItem(this.tecnicoSelecionado.getTime());
+        comboPaisTecnico.setSelectedItem(this.tecnicoSelecionado.getPais());
+        sliderOfensivoTecnico.setValue(this.tecnicoSelecionado.getOfensivo());
+        comboTimeTecnico.addItem(this.tecnicoSelecionado.getTime() + "");        
+    }
+    
+    private void clearCamposTecnico(){
+        
+        campoNomeTecnico.setText("");
+        comboPaisTecnico.setSelectedIndex(0);
+        sliderOfensivoTecnico.setValue(50);
+        comboTimeTecnico.removeAllItems();        
         
     }
     
@@ -1245,8 +1302,19 @@ public class Editor extends javax.swing.JFrame {
         comboPaisTime.setSelectedItem(this.timeSelecionado.getPais());
         popularComboEstado();
         comboEstadoTime.setSelectedItem(this.timeSelecionado.getEstado());
-        lblEstadio.setText(this.timeSelecionado.getEstadio().getNome());
-        lblTecnico.setText(this.timeSelecionado.getTecnico().getNome());
+        
+        if(this.timeSelecionado.getEstadio() == null){            
+            lblEstadio.setText("Sem Estádio");
+        } else {
+            lblEstadio.setText(this.timeSelecionado.getEstadio().getNome());
+        }
+        
+        if(this.timeSelecionado.getTecnico() == null){
+            lblTecnico.setText("Sem Técnico");    
+        } else {
+            lblTecnico.setText(this.timeSelecionado.getTecnico().getNome());
+        }
+        
         btnAlterarTime.setEnabled(true);
         btnAdicionarTime.setEnabled(true);
         btnRemoverTime.setEnabled(true);        
@@ -1289,11 +1357,11 @@ public class Editor extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboEstadoTime;
     private javax.swing.JComboBox<String> comboHabilidadeJogador;
     private javax.swing.JComboBox<String> comboMelhorPe;
-    private javax.swing.JComboBox<String> comboPais;
     private javax.swing.JComboBox<String> comboPaisJogador;
+    private javax.swing.JComboBox<String> comboPaisTecnico;
     private javax.swing.JComboBox<String> comboPaisTime;
     private javax.swing.JComboBox<String> comboPosicao;
-    private javax.swing.JComboBox<String> comboTime;
+    private javax.swing.JComboBox<String> comboTimeTecnico;
     private javax.swing.JComboBox<String> comboTitular;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1303,7 +1371,6 @@ public class Editor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -1346,15 +1413,13 @@ public class Editor extends javax.swing.JFrame {
     private javax.swing.JLabel lblValorForca;
     private javax.swing.JLabel lblValorIdade;
     private javax.swing.JSlider sliderAgressividadeJogador;
-    private javax.swing.JSlider sliderExperiencia;
     private javax.swing.JSlider sliderForcaJogador;
     private javax.swing.JSlider sliderIdadeJogador;
-    private javax.swing.JSlider sliderOfensivo;
+    private javax.swing.JSlider sliderOfensivoTecnico;
     private javax.swing.JTable tabelaEstadios;
     private javax.swing.JTable tabelaJogadores;
     private javax.swing.JTable tabelaTecnicos;
     private javax.swing.JTable tabelaTimes;
-    private javax.swing.JLabel valorSliderExperiencia;
     private javax.swing.JLabel valorSliderOfensivo;
     // End of variables declaration//GEN-END:variables
 }

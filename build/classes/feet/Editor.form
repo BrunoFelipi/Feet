@@ -954,25 +954,20 @@
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                                       <Component id="jLabel20" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel19" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="jLabel17" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="jLabel19" alignment="0" pref="59" max="32767" attributes="0"/>
                                                       <Component id="jLabel18" alignment="0" max="32767" attributes="0"/>
                                                   </Group>
                                                   <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="sliderOfensivo" pref="247" max="32767" attributes="0"/>
-                                                  <Component id="comboTime" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="sliderExperiencia" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="comboPais" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="sliderOfensivoTecnico" pref="247" max="32767" attributes="0"/>
+                                                  <Component id="comboTimeTecnico" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="comboPaisTecnico" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="campoNomeTecnico" alignment="0" max="32767" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="valorSliderExperiencia" max="32767" attributes="0"/>
-                                                  <Component id="valorSliderOfensivo" max="32767" attributes="0"/>
-                                              </Group>
+                                              <Component id="valorSliderOfensivo" min="-2" pref="33" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                   <Component id="jPanel16" max="32767" attributes="0"/>
@@ -1008,35 +1003,28 @@
                                                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   <Component id="campoNomeTecnico" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="valorSliderExperiencia" max="32767" attributes="0"/>
-                                                  <Component id="sliderExperiencia" max="32767" attributes="0"/>
-                                                  <Component id="jLabel17" max="32767" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="comboPais" max="32767" attributes="0"/>
+                                                  <Component id="comboPaisTecnico" max="32767" attributes="0"/>
                                                   <Component id="jLabel18" min="-2" pref="20" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="sliderOfensivo" max="32767" attributes="0"/>
+                                                  <Component id="sliderOfensivoTecnico" max="32767" attributes="0"/>
                                                   <Component id="jLabel19" min="-2" pref="26" max="-2" attributes="0"/>
-                                                  <Component id="valorSliderOfensivo" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="valorSliderOfensivo" alignment="0" min="-2" pref="26" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="comboTimeTecnico" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Component id="jPanel16" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                              <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="comboTime" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="btnAlterarImagemTecnico" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="btnAlterarImagemTecnico" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace pref="332" max="32767" attributes="0"/>
                                       <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1059,17 +1047,12 @@
                             </Component>
                             <Component class="javax.swing.JTextField" name="campoNomeTecnico">
                             </Component>
-                            <Component class="javax.swing.JLabel" name="jLabel17">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Experi&#xea;ncia:"/>
-                              </Properties>
-                            </Component>
                             <Component class="javax.swing.JLabel" name="jLabel18">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Pa&#xed;s:"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JComboBox" name="comboPais">
+                            <Component class="javax.swing.JComboBox" name="comboPaisTecnico">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="0"/>
@@ -1089,28 +1072,22 @@
                                 <Property name="text" type="java.lang.String" value="Time:"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JSlider" name="sliderExperiencia">
-                              <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JSlider" name="sliderOfensivo">
+                            <Component class="javax.swing.JSlider" name="sliderOfensivoTecnico">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                               </Properties>
                               <Events>
-                                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="sliderOfensivoStateChanged"/>
+                                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="sliderOfensivoTecnicoStateChanged"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JComboBox" name="comboTime">
+                            <Component class="javax.swing.JComboBox" name="comboTimeTecnico">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="0"/>
                                 </Property>
+                                <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1143,11 +1120,6 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlterarImagemTecnicoActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JLabel" name="valorSliderExperiencia">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="           "/>
-                              </Properties>
-                            </Component>
                             <Component class="javax.swing.JLabel" name="valorSliderOfensivo">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="         "/>
@@ -1157,16 +1129,25 @@
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Excluir"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExcluirActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="btnAlterarTecnico">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Alterar"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlterarTecnicoActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="btnAdicionarTecnico">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Adicionar"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdicionarTecnicoActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JSeparator" name="jSeparator3">
                             </Component>

@@ -109,6 +109,24 @@ public class BancoDeDados {
         
     }
     
+    public void addTecnicoInTime(Tecnico tec, Time t){
+        
+        for(Time time : getListaTimes()){
+            if(time.equals(t)){
+                time.setTecnico(tec);
+            }
+        }        
+    }
+    
+    public void removeTecnicoInTime(Time t){
+        
+        for(Time time : getListaTimes()){
+            if(time.equals(t)){
+                time.setTecnico(null);
+            }
+        }        
+    }
+    
     public void removeAllJogadoresTime(Time t){
         
         for(Time time : getListaTimes()){            
@@ -140,7 +158,7 @@ public class BancoDeDados {
         if(this.getListaEstadios().isEmpty()){
             return 1;
         }
-        return this.getListaEstadios().get(this.getListaEstadios().size()).getId() + 1;
+        return this.getListaEstadios().get(this.getListaEstadios().size() -1).getId() + 1;
     }
     
     public int getNextIdTecnico(){
@@ -148,6 +166,6 @@ public class BancoDeDados {
         if(this.getListaTecnicos().isEmpty()){
             return 1;
         }
-        return this.getListaTecnicos().get(this.getListaTecnicos().size()).getId() + 1;
+        return this.getListaTecnicos().get(this.getListaTecnicos().size() -1).getId() + 1;
     }
 }

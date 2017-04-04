@@ -74,6 +74,12 @@ public class TrocarImagemTecnico extends javax.swing.JFrame {
 
         btnAnt.setText("<");
 
+        painel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                painel2MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout painel2Layout = new javax.swing.GroupLayout(painel2);
         painel2.setLayout(painel2Layout);
         painel2Layout.setHorizontalGroup(
@@ -175,7 +181,11 @@ public class TrocarImagemTecnico extends javax.swing.JFrame {
 
     private void painel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painel1MouseClicked
 
-        painel1.setBorder(BorderFactory.createLineBorder(Color.red));
+        if(painel1.getBorder() == null){
+            painel1.setBorder(BorderFactory.createLineBorder(Color.red));
+        } else {
+            painel1.setBorder(null);
+        }
         
     }//GEN-LAST:event_painel1MouseClicked
 
@@ -192,12 +202,20 @@ public class TrocarImagemTecnico extends javax.swing.JFrame {
         }
         
         for(Component c : listaPainel){
-            
-            
             System.out.println(c);
         }
         
     }//GEN-LAST:event_btnOkActionPerformed
+
+    private void painel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_painel2MouseClicked
+
+        if(painel2.getBorder() == null){
+            painel2.setBorder(BorderFactory.createLineBorder(Color.red));
+        } else {
+            painel2.setBorder(null);
+        }
+        
+    }//GEN-LAST:event_painel2MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnt;
